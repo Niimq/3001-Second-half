@@ -41,7 +41,9 @@ private:
 	// Game Objects
 	Background* m_pBackground;
 	Target* m_pTarget;
-	Starship* m_pStarship;
+	// New for Lab 7 part 2
+	CloseCombatEnemy* m_pStarship;
+	//RangedCombatEnemy* m_pStarShip;
 	std::vector<Obstacle*> m_pObstacles;
 
 	void BuildObstaclePool();

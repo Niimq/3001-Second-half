@@ -42,7 +42,10 @@ void PlayScene::Draw()
 void PlayScene::Update()
 {
 	UpdateDisplayList();
-	m_checkAgentLOS(m_pStarship, m_pTarget);
+
+	m_pStarship->GetTree()->GetLOSNode()->SetLOS(m_pStarship->CheckAgentLOSToTarget(m_pStarship, m_pTarget, m_pObstacles));
+
+
 	switch(m_LOSMode)
 	{
 	case LOSMode::TARGET:
@@ -296,7 +299,7 @@ void PlayScene::m_checkAllNodesWithBoth() const
 {
 	for (const auto path_node : m_pGrid)
 	{
-		const bool LOSWithStarShip = m_checkPathNodeLOS(path_node, m_pStarship);
+		const bool LOSWithStarShip = m_checkPathNodeLOS(path_node,m_pStarship);
 		const bool LOSWithTarget = m_checkPathNodeLOS(path_node, m_pTarget);
 		path_node->SetHasLOS(LOSWithStarShip && LOSWithTarget, glm::vec4(0, 1, 1, 1));
 	}
@@ -343,7 +346,7 @@ void PlayScene::Start()
 	m_pTarget->GetTransform()->position = glm::vec2(500.0f, 300.0f);
 	AddChild(m_pTarget, 3);
 
-	m_pStarship = new Starship();
+	m_pStarship = new CloseCombatEnemy();
 	m_pStarship->GetTransform()->position = glm::vec2(400.0f, 40.0f);
 	AddChild(m_pStarship, 4);
 
@@ -360,11 +363,11 @@ void PlayScene::Start()
 	SoundManager::Instance().Load("../Assets/audio/thunder.ogg", "thunder", SoundType::SOUND_SFX);
 
 	// Pre-load Music
-	SoundManager::Instance().Load("../Assets/audio/mutara.mp3", "mutara", SoundType::SOUND_MUSIC);
+	SoundManager::Instance().Load("../Assets/audio/kligon.mp3", "kligon", SoundType::SOUND_MUSIC);
 	SoundManager::Instance().SetMusicVolume(16);
 
 	// Play Music
-	SoundManager::Instance().PlayMusic("mutara");
+	SoundManager::Instance().PlayMusic("kligon");
 
 	/* DO NOT REMOVE */
 	ImGuiWindowFrame::Instance().SetGuiFunction([this] { GUI_Function(); });
