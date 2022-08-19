@@ -16,6 +16,7 @@
 
 #include <vector>
 #include <iostream>
+#include "RangedCombatCondition.cpp"
 
 class DecisionTree
 {
@@ -34,14 +35,14 @@ public:
 	[[nodiscard]] LOSCondition* GetLOSNode() const;
 	[[nodiscard]] RadiusCondition* GetRadiusNode() const;
 	[[nodiscard]] CloseCombatCondition* GetCloseCombatNode() const;
-	// RangedCombatCondition* GetRangedCombatNode() const;
+	RangedCombatCondition* GetRangedCombatNode() const;
 	std::vector<TreeNode*>& GetTree();
 
 	// New for Lab 7 part 2
 	void SetLOSNode(LOSCondition* node);
 	void SetRadiusNode(RadiusCondition* node);
 	void SetCloseCombatNode(CloseCombatCondition* node);
-	// void SetRangerCombatNode (RangedCombatCondition* node);
+	void SetRangerCombatNode (RangedCombatCondition* node);
 
 	// Public Utility / Convenience Methods
 	TreeNode* AddNode(TreeNode* parent, TreeNode* child_node, TreeNodeType type);
@@ -53,18 +54,18 @@ public:
 
 private:
 	// Private Data Members (Fields)
-	Agent* m_agent;
-	LOSCondition* m_LOSNode;
-	RadiusCondition* m_RadiusNode;
-	CloseCombatCondition* m_CloseCombatNode;
+	Agent* m_agent{};
+	LOSCondition* m_LOSNode{};
+	RadiusCondition* m_RadiusNode{};
+	CloseCombatCondition* m_CloseCombatNode{};
 	// new fr Lab 7 part 2
-	// RangedCombatCondition* m_RangedCombatNode;
+	RangedCombatCondition* m_RangedCombatNode{};
 
 	// TreeNode List
 	std::vector<TreeNode*> m_treeNodeList;
 
 	// Private Methods
-	void m_buildTree();
+	// void m_buildTree();
 };
 
 #endif /* defined (__DECISION_TREE__) */
