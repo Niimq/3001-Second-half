@@ -3,7 +3,7 @@
 #define __CONDITION_NODE__
 #include "TreeNode.h"
 
-// Abstract c;ass
+// Abstract Class
 class ConditionNode : public TreeNode
 {
 public:

@@ -10,7 +10,7 @@ public:
 	MoveToPlayerAction();
 	virtual ~MoveToPlayerAction();
 
-	virtual void Action() override; // Specialization
-
+	virtual void Action() override; // Define here
 };
-#endif /* defined (__MOVE_TO_PLAYER_ACTION__) */
+
+#endif /* defined  (__MOVE_TO_PLAYER_ACTION__) */

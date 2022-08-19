@@ -1,6 +1,6 @@
 #include "LOSCondition.h"
 
-LOSCondition::LOSCondition(bool LOS)
+LOSCondition::LOSCondition(const bool LOS)
 {
 	m_name = "LOS Condition";
 	SetLOS(LOS);
@@ -9,7 +9,7 @@ LOSCondition::LOSCondition(bool LOS)
 LOSCondition::~LOSCondition()
 = default;
 
-void LOSCondition::SetLOS(bool state)
+void LOSCondition::SetLOS(const bool state)
 {
 	m_hasLOS = state;
 }

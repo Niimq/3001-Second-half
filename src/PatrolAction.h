@@ -10,7 +10,7 @@ public:
 	PatrolAction();
 	virtual ~PatrolAction();
 
-	virtual void Action() override; // Specialization
-
+	virtual void Action() override; // Define here
 };
-#endif /* defined (__PATROL_ACTION__) */
+
+#endif /* defined  (__PATROL_ACTION__) */

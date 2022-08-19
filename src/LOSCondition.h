@@ -14,10 +14,8 @@ public:
 	void SetLOS(bool state);
 
 	virtual bool Condition() override;
-	
 private:
 	bool m_hasLOS;
 };
 
-#endif /* Define __LOS_CONDITION__ */
-
+#endif /* defined (__LOS_CONDITION__) */

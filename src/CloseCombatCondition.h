@@ -7,17 +7,15 @@
 class CloseCombatCondition : public ConditionNode
 {
 public:
-	CloseCombatCondition(bool Within_Combat_Range = false);
+	CloseCombatCondition(bool within_combat_range = false);
 	virtual ~CloseCombatCondition();
 
 	// Getters and Setters
 	void SetIsWithinCombatRange(bool state);
 
 	virtual bool Condition() override;
-	
 private:
 	bool m_isWithinCombatRange;
 };
 
-#endif /* Defined __CLOSE_COMBAT_CONDITION__ */
-
+#endif /* defined (__CLOSE_COMBAT_CONDITION__) */

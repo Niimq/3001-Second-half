@@ -10,7 +10,7 @@ public:
 	MoveToLOSAction();
 	virtual ~MoveToLOSAction();
 
-	virtual void Action() override; // Specialization
-
+	virtual void Action() override; // Define here
 };
-#endif /* defined (__MOVE_TO_LOS_ACTION__) */
+
+#endif /* defined  (__MOVE_TO_LOS_ACTION__) */

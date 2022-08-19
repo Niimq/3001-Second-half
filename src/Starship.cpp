@@ -24,6 +24,7 @@ Starship::Starship() : m_maxSpeed(20.0f),
 	
 	SetType(GameObjectType::AGENT);
 
+	// New for Lab 7
 	SetActionState(ActionState::NO_ACTION);
 	BuildPatrolPath();
 }
@@ -43,17 +44,17 @@ void Starship::Draw()
 
 void Starship::Update()
 {
-	// Determine which action to perform
-	switch (GetActionState())
+	// Determine which to action to perform
+	switch(GetActionState())
 	{
 	case ActionState::PATROL:
 		Move();
 		break;
 	case ActionState::MOVE_TO_LOS:
-		// Perform move to LOS action
+		// perform move to LOS action
 		break;
 	case ActionState::ATTACK:
-		// Perform Attack action
+		// perform attack action
 		break;
 	}
 }
@@ -105,17 +106,18 @@ void Starship::SetAccelerationRate(const float rate)
 
 void Starship::Seek()
 {
-	// Find Next WayPoint if within 10px of the current waypoint
-	if (Util::Distance(m_patrolPath[m_wayPoint], GetTransform()->position) < 10)
+	// Find Next Waypoint if within 10px of the current waypoint
+	if(Util::Distance(m_patrolPath[m_wayPoint], GetTransform()->position) < 10)
 	{
-		// Check to see if you are at the last point in the path
-		if (++m_wayPoint == m_patrolPath.size())
+		// check to see if you are at the last point in the path
+		if(++m_wayPoint == m_patrolPath.size())
 		{
 			// if so...reset
 			m_wayPoint = 0;
 		}
 		SetTargetPosition(m_patrolPath[m_wayPoint]);
 	}
+
 
 	SetDesiredVelocity(GetTargetPosition());
 
@@ -146,10 +148,10 @@ void Starship::LookWhereIAmGoing(const glm::vec2 target_direction)
 
 void Starship::BuildPatrolPath()
 {
-	m_patrolPath.push_back(glm::vec2(760, 40)); // Top Right Corner node
-	m_patrolPath.push_back(glm::vec2(760, 560)); // Bottom Right Corner node
-	m_patrolPath.push_back(glm::vec2(40, 560)); // Bottom left Corner node
-	m_patrolPath.push_back(glm::vec2(40, 40)); // Top left Corner node
+	m_patrolPath.push_back(glm::vec2(760, 40)); // Top Right corner node
+	m_patrolPath.push_back(glm::vec2(760, 560)); // Bottom Right corner node
+	m_patrolPath.push_back(glm::vec2(40, 560)); // Bottom Left corner node
+	m_patrolPath.push_back(glm::vec2(40, 40)); // Top Left corner node
 	m_wayPoint = 0;
 
 	SetTargetPosition(m_patrolPath[m_wayPoint]); // Top Right to Start

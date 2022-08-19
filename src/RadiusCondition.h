@@ -11,13 +11,11 @@ public:
 	virtual ~RadiusCondition();
 
 	// Getters and Setters
-	void SetIsWithingRadius(bool state);
+	void SetIsWithinRadius(bool state);
 
 	virtual bool Condition() override;
-	
 private:
 	bool m_isWithinRadius;
 };
 
-#endif /* __RADIUS_CONDITION__ */
-
+#endif /* defined (__RADIUS_CONDITION__) */

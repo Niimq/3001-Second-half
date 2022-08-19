@@ -6,12 +6,12 @@
 #include "Obstacle.h"
 #include "Scene.h"
 #include "PathNode.h"
+#include "Starship.h"
 #include "Target.h"
 #include "LOSMode.h"
-#include "CloseCombatEnemy.h"
-#include "RangedCombatEnemy.h"
 
 // New For Lab 7
+#include "DecisionTree.h"
 
 class PlayScene : public Scene
 {
@@ -42,9 +42,7 @@ private:
 	// Game Objects
 	Background* m_pBackground;
 	Target* m_pTarget;
-	// New for Lab 7 part 2
-	//CloseCombatEnemy* m_pStarship;
-	RangedCombatEnemy* m_pStarShip;
+	Starship* m_pStarship;
 	std::vector<Obstacle*> m_pObstacles;
 
 	void BuildObstaclePool();
@@ -63,6 +61,8 @@ private:
 	void m_clearNodes();
 	int m_pathNodeLOSDistance;
 
+	// Decision Tree
+	DecisionTree* m_decisionTree;
 };
 
 #endif /* defined (__PLAY_SCENE__) */

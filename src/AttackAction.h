@@ -10,7 +10,7 @@ public:
 	AttackAction();
 	virtual ~AttackAction();
 
-	virtual void Action() override; // Specialization
-
+	virtual void Action() override; // Define here
 };
-#endif /* defined (__ATTACK_ACTION__) */
+
+#endif /* defined  (__ATTACK_ACTION__) */

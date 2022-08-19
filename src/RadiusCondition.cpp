@@ -1,15 +1,15 @@
 #include "RadiusCondition.h"
 
-RadiusCondition::RadiusCondition(bool within_radius)
+RadiusCondition::RadiusCondition(const bool within_radius)
 {
 	m_name = "Radius Condition";
-	SetIsWithingRadius(within_radius);
+	SetIsWithinRadius(within_radius);
 }
 
 RadiusCondition::~RadiusCondition()
 = default;
 
-void RadiusCondition::SetIsWithingRadius(bool state)
+void RadiusCondition::SetIsWithinRadius(const bool state)
 {
 	m_isWithinRadius = state;
 }

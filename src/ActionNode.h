@@ -4,7 +4,7 @@
 #include "TreeNode.h"
 #include "Agent.h"
 
-// Interface
+// Abstract Class
 class ActionNode : public TreeNode
 {
 public:
