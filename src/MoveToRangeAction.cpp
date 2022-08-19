@@ -1,16 +1,16 @@
-#include "MoveToPlayerAction.h"
+#include "MoveToRangeAction.h"
 
 #include <iostream>
 
-MoveToPlayerAction::MoveToPlayerAction()
+MoveToRangeAction::MoveToRangeAction()
 {
-	m_name = "Move To Player Action";
+	m_name = "Move To Range Action";
 }
 
-MoveToPlayerAction::~MoveToPlayerAction()
+MoveToRangeAction::~MoveToRangeAction()
 = default;
 
-void MoveToPlayerAction::Action()
+void MoveToRangeAction::Action()
 {
 	if (GetAgent()->GetActionState() != ActionState::MOVE_TO_PLAYER)
 	{
