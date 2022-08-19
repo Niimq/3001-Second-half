@@ -58,7 +58,8 @@ private:
 	void m_clearNodes();
 	int m_pathNodeLOSDistance;
 
-	// TODO: Decision Tree Declaration goes here
+	// Decision Tree
+	DecisionTree* m_decisionTree;
 };
 
 #endif /* defined (__PLAY_SCENE__) */
