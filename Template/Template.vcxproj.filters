@@ -49,6 +49,9 @@
     <Filter Include="Decision\Conditions">
       <UniqueIdentifier>{42ee79e1-18ef-4f47-8d36-b1dfdcb536ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Decision\Core">
+      <UniqueIdentifier>{37113fa9-7b81-48b2-bcd2-036efafaa680}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\StartScene.cpp">
@@ -132,9 +135,6 @@
     <ClCompile Include="..\src\Obstacle.cpp">
       <Filter>Game Objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Agent.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\include\IMGUI\imgui.cpp">
       <Filter>IMGUI</Filter>
     </ClCompile>
@@ -156,9 +156,6 @@
     <ClCompile Include="..\src\NavigationObject.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Starship.cpp">
-      <Filter>Game Objects</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Megaman.cpp">
       <Filter>Game Objects</Filter>
     </ClCompile>
@@ -170,6 +167,12 @@
     </ClCompile>
     <ClCompile Include="..\src\Background.cpp">
       <Filter>Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Starship.cpp">
+      <Filter>Decision\Agents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Agent.cpp">
+      <Filter>Decision\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -290,9 +293,6 @@
     <ClInclude Include="..\src\Obstacle.h">
       <Filter>Game Objects</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Agent.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\IMGUI\imconfig.h">
       <Filter>IMGUI</Filter>
     </ClInclude>
@@ -322,9 +322,6 @@
     </ClInclude>
     <ClInclude Include="..\src\InputType.h">
       <Filter>Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Starship.h">
-      <Filter>Game Objects</Filter>
     </ClInclude>
     <ClInclude Include="..\src\TileNeighbour.h">
       <Filter>Enums</Filter>
@@ -361,6 +358,21 @@
     </ClInclude>
     <ClInclude Include="..\src\Background.h">
       <Filter>Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Starship.h">
+      <Filter>Decision\Agents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Agent.h">
+      <Filter>Decision\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ActionNode.h">
+      <Filter>Decision\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ConditionNode.h">
+      <Filter>Decision\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TreeNode.h">
+      <Filter>Decision\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
