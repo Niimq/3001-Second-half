@@ -1,14 +1,14 @@
 #pragma once
-#ifndef __CLOSE_COMBAT_CONDITION__
-#define __CLOSE_COMBAT_CONDITION__
+#ifndef __RANGED_COMBAT_CONDITION__
+#define __RANGED_COMBAT_CONDITION__
 
 #include "ConditionNode.h"
 
-class CloseCombatCondition : public ConditionNode
+class RangedCombatCondition : public ConditionNode
 {
 public:
-	CloseCombatCondition(bool Within_Combat_Range = false);
-	virtual ~CloseCombatCondition();
+	RangedCombatCondition(bool Within_Combat_Range = false);
+	virtual ~RangedCombatCondition();
 
 	// Getters and Setters
 	void SetIsWithinCombatRange(bool state);
@@ -19,5 +19,5 @@ private:
 	bool m_isWithinCombatRange;
 };
 
-#endif /* Defined __CLOSE_COMBAT_CONDITION__ */
+#endif /* Defined __RANGED_COMBAT_CONDITION__ */
 

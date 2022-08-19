@@ -1,20 +1,20 @@
-#include "CloseCombatCondition.h"
+#include "RangedCombatCondition.h"
 
-CloseCombatCondition::CloseCombatCondition(bool Within_Combat_Range)
+RangedCombatCondition::RangedCombatCondition(bool Within_Combat_Range)
 {
-	m_name = "Close Combat Condition";
+	m_name = "Ranged Combat Condition";
 	SetIsWithinCombatRange(Within_Combat_Range);
 }
 
-CloseCombatCondition::~CloseCombatCondition()
+RangedCombatCondition::~RangedCombatCondition()
 = default;
 
-void CloseCombatCondition::SetIsWithinCombatRange(bool state)
+void RangedCombatCondition::SetIsWithinCombatRange(bool state)
 {
 	m_isWithinCombatRange = state;
 }
 
-bool CloseCombatCondition::Condition()
+bool RangedCombatCondition::Condition()
 {
 	return m_isWithinCombatRange;
 }
