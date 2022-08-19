@@ -64,7 +64,7 @@ void DecisionTree::SetCloseCombatNode(CloseCombatCondition* node)
 	m_CloseCombatNode = node;
 }
 
-void DecisionTree::SetRangerCombatNode(RangedCombatCondition* node)
+void DecisionTree::SetRangedCombatNode(RangedCombatCondition* node)
 {
 }
 

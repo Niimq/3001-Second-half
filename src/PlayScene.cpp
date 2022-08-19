@@ -43,7 +43,7 @@ void PlayScene::Update()
 {
 	UpdateDisplayList();
 
-	m_pStarship->GetTree()->GetLOSNode()->SetLOS(m_pStarship->CheckAgentLOSToTarget(m_pStarship, m_pTarget, m_pObstacles));
+	m_pStarShip->GetTree()->GetLOSNode()->SetLOS(m_pStarShip->CheckAgentLOSToTarget(m_pStarShip, m_pTarget, m_pObstacles));
 
 
 	switch(m_LOSMode)
@@ -52,7 +52,7 @@ void PlayScene::Update()
 		m_checkAllNodesWithTarget(m_pTarget);
 		break;
 	case LOSMode::SHIP:
-		m_checkAllNodesWithTarget(m_pStarship); 
+		m_checkAllNodesWithTarget(m_pStarShip); 
 		break;
 	case LOSMode::BOTH:
 		m_checkAllNodesWithBoth(); 
@@ -299,7 +299,7 @@ void PlayScene::m_checkAllNodesWithBoth() const
 {
 	for (const auto path_node : m_pGrid)
 	{
-		const bool LOSWithStarShip = m_checkPathNodeLOS(path_node,m_pStarship);
+		const bool LOSWithStarShip = m_checkPathNodeLOS(path_node,m_pStarShip);
 		const bool LOSWithTarget = m_checkPathNodeLOS(path_node, m_pTarget);
 		path_node->SetHasLOS(LOSWithStarShip && LOSWithTarget, glm::vec4(0, 1, 1, 1));
 	}
@@ -346,9 +346,10 @@ void PlayScene::Start()
 	m_pTarget->GetTransform()->position = glm::vec2(500.0f, 300.0f);
 	AddChild(m_pTarget, 3);
 
-	m_pStarship = new CloseCombatEnemy();
-	m_pStarship->GetTransform()->position = glm::vec2(400.0f, 40.0f);
-	AddChild(m_pStarship, 4);
+	//m_pStarShip = new CloseCombatEnemy();
+	m_pStarShip = new RangedCombatEnemy();
+	m_pStarShip->GetTransform()->position = glm::vec2(400.0f, 40.0f);
+	AddChild(m_pStarShip, 4);
 
 	// Add Obstacles
 	BuildObstaclePool();
@@ -417,18 +418,18 @@ void PlayScene::GUI_Function()
 
 	// spaceship properties
 
-	static int shipPosition[] = { static_cast<int>(m_pStarship->GetTransform()->position.x), static_cast<int>(m_pStarship->GetTransform()->position.y)};
+	static int shipPosition[] = { static_cast<int>(m_pStarShip->GetTransform()->position.x), static_cast<int>(m_pStarShip->GetTransform()->position.y)};
 	if (ImGui::SliderInt2("Ship Position", shipPosition, 0, 800))
 	{
-		m_pStarship->GetTransform()->position.x = static_cast<float>(shipPosition[0]);
-		m_pStarship->GetTransform()->position.y = static_cast<float>(shipPosition[1]);
+		m_pStarShip->GetTransform()->position.x = static_cast<float>(shipPosition[0]);
+		m_pStarShip->GetTransform()->position.y = static_cast<float>(shipPosition[1]);
 	}
 
 	// allow the ship to rotate
 	static int angle;
 	if (ImGui::SliderInt("Ship Direction", &angle, -360, 360))
 	{
-		m_pStarship->SetCurrentHeading(static_cast<float>(angle));
+		m_pStarShip->SetCurrentHeading(static_cast<float>(angle));
 	}
 
 	// Target properties

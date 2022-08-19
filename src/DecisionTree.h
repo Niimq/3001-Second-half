@@ -42,7 +42,7 @@ public:
 	void SetLOSNode(LOSCondition* node);
 	void SetRadiusNode(RadiusCondition* node);
 	void SetCloseCombatNode(CloseCombatCondition* node);
-	void SetRangerCombatNode (RangedCombatCondition* node);
+	void SetRangedCombatNode (RangedCombatCondition* node);
 
 	// Public Utility / Convenience Methods
 	TreeNode* AddNode(TreeNode* parent, TreeNode* child_node, TreeNodeType type);
