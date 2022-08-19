@@ -5,7 +5,7 @@
 #include "EventManager.h"
 
 CloseCombatEnemy::CloseCombatEnemy() : m_maxSpeed(20.0f),
-	m_turnRate(5.0f), m_accelerationRate(2.0f)
+	                                   m_turnRate(5.0f), m_accelerationRate(2.0f)
 {
 	TextureManager::Instance().Load("../Assets/textures/d7_small.png","Close_Enemy");
 
@@ -26,8 +26,14 @@ CloseCombatEnemy::CloseCombatEnemy() : m_maxSpeed(20.0f),
 	
 	SetType(GameObjectType::AGENT);
 
+	// New for Lab 7
 	SetActionState(ActionState::NO_ACTION);
 	BuildPatrolPath();
+
+	// New for Lab 7 part 2
+	m_tree = new DecisionTree(this); // Create a new Tree
+	m_buildTree();
+	m_tree->Display(); // optional
 }
 
 CloseCombatEnemy::~CloseCombatEnemy()
@@ -194,6 +200,7 @@ void CloseCombatEnemy::Patrol()
 		// Initialize
 		SetActionState(ActionState::PATROL);
 	}
+	Move();
 }
 
 void CloseCombatEnemy::MoveToPlayer()

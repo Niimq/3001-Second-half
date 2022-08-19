@@ -6,9 +6,9 @@
 #include "Obstacle.h"
 #include "Scene.h"
 #include "PathNode.h"
-#include "Starship.h"
 #include "Target.h"
 #include "LOSMode.h"
+#include "CloseCombatEnemy.h"
 
 // New For Lab 7
 
