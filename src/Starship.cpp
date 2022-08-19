@@ -15,12 +15,17 @@ Starship::Starship() : m_maxSpeed(20.0f),
 	GetRigidBody()->velocity = glm::vec2(0, 0);
 	GetRigidBody()->acceleration = glm::vec2(0, 0);
 	GetRigidBody()->isColliding = false;
+
 	SetCurrentHeading(0.0f); // current facing angle
 	SetLOSDistance(400.0f);
 	SetWhiskerAngle(45.0f);
+
 	SetLOSColour(glm::vec4(1, 0, 0, 1)); // default LOS colour is Red
 	
 	SetType(GameObjectType::AGENT);
+
+	SetActionState(ActionState::NO_ACTION);
+	BuildPatrolPath();
 }
 
 Starship::~Starship()
@@ -100,6 +105,18 @@ void Starship::SetAccelerationRate(const float rate)
 
 void Starship::Seek()
 {
+	// Find Next WayPoint if within 10px of the current waypoint
+	if (Util::Distance(m_patrolPath[m_wayPoint], GetTransform()->position) < 10)
+	{
+		// Check to see if you are at the last point in the path
+		if (++m_wayPoint == m_patrolPath.size())
+		{
+			// if so...reset
+			m_wayPoint = 0;
+		}
+		SetTargetPosition(m_patrolPath[m_wayPoint]);
+	}
+
 	SetDesiredVelocity(GetTargetPosition());
 
 	const glm::vec2 steering_direction = GetDesiredVelocity() - GetCurrentDirection();
@@ -125,6 +142,17 @@ void Starship::LookWhereIAmGoing(const glm::vec2 target_direction)
 		SetCurrentHeading(GetCurrentHeading() + GetTurnRate() * Util::Sign(target_rotation));
 	}
 	UpdateWhiskers(GetWhiskerAngle()); // New for Lab 3.
+}
+
+void Starship::BuildPatrolPath()
+{
+	m_patrolPath.push_back(glm::vec2(760, 40)); // Top Right Corner node
+	m_patrolPath.push_back(glm::vec2(760, 560)); // Bottom Right Corner node
+	m_patrolPath.push_back(glm::vec2(40, 560)); // Bottom left Corner node
+	m_patrolPath.push_back(glm::vec2(40, 40)); // Top left Corner node
+	m_wayPoint = 0;
+
+	SetTargetPosition(m_patrolPath[m_wayPoint]); // Top Right to Start
 }
 
 void Starship::Move()

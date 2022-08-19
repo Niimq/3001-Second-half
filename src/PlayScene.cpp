@@ -355,11 +355,6 @@ void PlayScene::Start()
 	m_buildGrid();
 	m_toggleGrid(m_isGridEnabled);
 
-	// Create Decision Tree
-	m_decisionTree = new DecisionTree(m_pStarship); // using our overloaded constructor
-	m_decisionTree->Display(); // optional
-	m_decisionTree->MakeDecision(); // patrol
-
 	// Pre-load sounds
 	SoundManager::Instance().Load("../Assets/audio/yay.ogg", "yay", SoundType::SOUND_SFX);
 	SoundManager::Instance().Load("../Assets/audio/thunder.ogg", "thunder", SoundType::SOUND_SFX);

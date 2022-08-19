@@ -10,6 +10,8 @@
 #include "Target.h"
 #include "LOSMode.h"
 
+// New For Lab 7
+
 class PlayScene : public Scene
 {
 public:
@@ -58,8 +60,6 @@ private:
 	void m_clearNodes();
 	int m_pathNodeLOSDistance;
 
-	// Decision Tree
-	DecisionTree* m_decisionTree;
 };
 
 #endif /* defined (__PLAY_SCENE__) */
