@@ -38,8 +38,19 @@ void Starship::Draw()
 
 void Starship::Update()
 {
-	/*Move();
-	CheckBounds();*/
+	// Determine which action to perform
+	switch (GetActionState())
+	{
+	case ActionState::PATROL:
+		Move();
+		break;
+	case ActionState::MOVE_TO_LOS:
+		// Perform move to LOS action
+		break;
+	case ActionState::ATTACK:
+		// Perform Attack action
+		break;
+	}
 }
 
 void Starship::Clean()
